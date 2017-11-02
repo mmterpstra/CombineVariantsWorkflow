@@ -1,5 +1,5 @@
 # CombineVariantsWorkflow
-Small workflow for combining variants from multiple sources
+Small workflow for combining variants from multiple sources, the offical name is variant normalisation and can be performed using vt bcftools and GATK. Afterward youll still need to recover sample annotations and this piece should cover this. This could need some updates. See also https://genome.sph.umich.edu/wiki/Variant_Normalization
 
 # prerequirements
 Install the https://github.com/mmterpstra/pipeline-util repo by installing the missing perl libraries (Vcftools perl library version 1.12b) and missing according to manual.
@@ -40,6 +40,8 @@ java -jar GenomeAnalysisToolkit.jar -T CombineVariants \
 # 3 Merge different callers
 
 This should lose some AD fields and the like for the complex variants (multiple alts). The complex merges also lose these.
+
+Note this part could be performed by other software better: https://genome.sph.umich.edu/wiki/Variant_Normalization
 
 ```
 java -Xmx4g -Djava.io.tmpdir=${variantCombineDir} \
